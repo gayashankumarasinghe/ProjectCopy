@@ -10,10 +10,11 @@
  
  <mat-form-field class="example-full-width">
     <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date"
-    [(ngModel)]="booking.date"
+    [(ngModel)]="booking.option"
     name="date"
+    type="text"
     class="form-control"
-    #bookingDate="ngModel">
+    #bookingOption="ngModel">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 
@@ -24,6 +25,11 @@
       <mat-option value="option1">Option 1</mat-option>
       <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
       <mat-option value="option3">Option 3</mat-option>
+      <input[(ngModel)]="booking.date"
+      name="option"
+      type="text"
+      class="form-control"
+      #bookingDate="ngModel">
     </mat-select>
   </mat-form-field><br/>
 
@@ -42,6 +48,7 @@
   </mat-form-field-->
   <mat-form-field>
     <input matInput placeholder="Email"
+           type = "text"
           [(ngModel)]="booking.email"
           class="form-control"
           name = "email"
@@ -53,6 +60,7 @@
     <input matInput placeholder="VehicleNo"  type="text"
     [(ngModel)]="booking.VehicleNo"
     name="VehicleNo"
+    type="text"
     #bookingVehicleNo="ngModel"
     minlength="2"
     required>

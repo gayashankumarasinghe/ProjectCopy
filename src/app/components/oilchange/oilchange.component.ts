@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgF
 import { BookingService } from '../../services/booking.service';
 import { Booking } from '../../models/Booking';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,9 +19,11 @@ export class OilchangeComponent implements OnInit {
   ={
     //$key?:string;
     email:'',
-    phone:'',
+    //phone:'',
     vehicleNo:'',
-    millage:0 ,
+    //millage:0 ,
+    date:'',
+    option:''
   }
 
   myFilter = (d: Date): boolean => {
@@ -45,7 +49,12 @@ export class OilchangeComponent implements OnInit {
   //value2 = false;
  // value3 = true;
 
-  constructor(public bookingService:BookingService) { }
+  constructor(
+    public bookingService:BookingService,
+    public flashMessagesService:FlashMessagesService,
+    public router:Router,
+    //public clientService:ClientService
+  ) { }
 
   ngOnInit() {
     //this.firstFormGroup = this._formBuilder.group({
@@ -85,8 +94,16 @@ export class OilchangeComponent implements OnInit {
     // return day !== 0 && day !== 6 ;
    // return yar !> yyyy;
  // }
-  onSubmit({value,valid}:{value:Booking,valid:boolean}){
-    console.log(value);
+ onSubmit({value, valid}:{value:Booking, valid:boolean}){
+  if(!valid){
+    this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
+    this.router.navigate(['/oilchange']);
+  } else {
+    // Add new client
+    this.bookingService.newBooking(value);
+    this.flashMessagesService.show('New Booking added', {cssClass:'alert-success', timeout: 4000});
+    this.router.navigate(['/']);
+  }
   }
   // email validation
 }
