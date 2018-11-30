@@ -17,8 +17,12 @@ export class BookingService {
     
      //get booking
   //getBooking(vehicleno : string): FirebaseObjectObservable<any> {
-   //  return this.Booking = this.af.database.object('/bookings/'+ vehicleno);
+   // return this.Booking = this.af.database.object('/bookings/'+ vehicleno);
   //}
+  getBookings(){
+    return this.Bookings
+  }
+
   newBooking(booking:Booking){
     this.Bookings.push(this.Booking);
   }

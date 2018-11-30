@@ -1,3 +1,33 @@
-<p>
-  admin-booking works!
-</p>
+<p>works</p>
+
+<table *ngIf="bookind?.length > 0;else noBookings" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>Date</th>
+      <th>Option</th>
+      <th>Vehicleno</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <!-- <td>{{client.$key}}</td> -->
+      <!--td>{{client.firstName}} {{client.lastName}}</td-->
+      <td>{{booking.date}}</td>
+      <td>{{booking.option}}</td>
+      <td>{{booking.email}}</td>
+      <td>{{booking.vehicleNo}}</td>
+      
+      <td><a [routerLink]="['/booking/'+booking.$key]" href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<ng-template #noBookings>
+  <hr>
+  <h5>There are no bookings in the system</h5>
+</ng-template>
+
