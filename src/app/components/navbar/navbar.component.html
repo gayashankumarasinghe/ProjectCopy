@@ -15,6 +15,9 @@
         <li *ngIf = "!isLoggedIn" class="nav-item">
           <a class="nav-link" href="#" routerLink="/login">Login</a>
         </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#">{{loggedInUser}}</a>
+        </li>
         <li *ngIf = "!isLoggedIn" class="nav-item">
           <a class="nav-link" href="#" routerLink="/register">Register</a>
         </li>

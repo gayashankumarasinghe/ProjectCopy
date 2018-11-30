@@ -39,6 +39,11 @@ import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ClientpageComponent } from './components/clientpage/clientpage.component';
+import { BookingService } from './services/booking.service';
+import { BookingComponent } from './components/booking/booking.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 
 const appRoutes: Routes = [
     {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
@@ -50,7 +55,9 @@ const appRoutes: Routes = [
     {path:'',component:CoverComponent},
     {path:'bookservice', component:BookserviceComponent},
     {path:'oilchange', component:OilchangeComponent},
-    {path:'withwashing', component:WithwashingComponent}
+    {path:'withwashing', component:WithwashingComponent},
+    {path:'adminUser', component:AdminUserComponent},
+    {path:'adminBooking', component:AdminBookingComponent}
 ];
 
 export const firebaseConfig = {
@@ -82,7 +89,11 @@ export const firebaseConfig = {
     BookserviceComponent,
     OilchangeComponent,
     WithwashingComponent,
-    ClientpageComponent
+    ClientpageComponent,
+    BookingComponent,
+    SignupComponent,
+    AdminUserComponent,
+    AdminBookingComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +110,8 @@ export const firebaseConfig = {
     AngularFireDatabase,
     ClientService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    BookingService
   ],
   bootstrap: [AppComponent]
 })

@@ -17,9 +17,7 @@ export class AddclientComponent implements OnInit {
     email:'',
     phone:'',
     vehicleNo:'',
-    millage:0
-  
-  
+    millage:0 
   }
   //disableBalanceOnAdd:boolean = false;
 
