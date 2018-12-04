@@ -48,9 +48,11 @@ import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 const appRoutes: Routes = [
     {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
     //{path:'', component:CoverComponent},
-    {path:'register', component:RegisterComponent},
+    {path:'register', component:AddclientComponent},
     {path:'login', component:LoginComponent},
-    {path:'addclient',component:AddclientComponent, canActivate:[AuthGuard]},
+    {path:'addclient',component:AddclientComponent,
+    //  canActivate:[AuthGuard]
+    },
     {path:'client-details',component:ClientDetailsComponent,canActivate:[AuthGuard]},
     {path:'',component:CoverComponent},
     {path:'bookservice', component:BookserviceComponent},

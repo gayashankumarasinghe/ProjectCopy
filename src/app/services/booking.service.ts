@@ -12,7 +12,7 @@ export class BookingService {
     public af: AngularFireDatabase
   ) {
     //get bookings as list this call the booking collection path is for booking collection
-    this.Bookings = this.af.list('/bookings') as FirebaseListObservable<Booking[]>;
+    this.Bookings = this.af.list('/booking') as FirebaseListObservable<Booking[]>;
     }
     
      //get booking
@@ -24,7 +24,8 @@ export class BookingService {
   }
 
   newBooking(booking:Booking){
-    this.Bookings.push(this.Booking);
+    this.Bookings.push(booking);
+    // console.log()
   }
 
 }

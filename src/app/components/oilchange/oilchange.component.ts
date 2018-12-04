@@ -94,16 +94,26 @@ export class OilchangeComponent implements OnInit {
     // return day !== 0 && day !== 6 ;
    // return yar !> yyyy;
  // }
- onSubmit({value, valid}:{value:Booking, valid:boolean}){
-  if(!valid){
-    this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
-    this.router.navigate(['/oilchange']);
-  } else {
-    // Add new client
-    this.bookingService.newBooking(value);
-    this.flashMessagesService.show('New Booking added', {cssClass:'alert-success', timeout: 4000});
-    this.router.navigate(['/']);
-  }
-  }
+//  onSubmit({value, valid}:{value:Booking, valid:boolean}){
+//   if(!valid){
+//     this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
+//     this.router.navigate(['/oilchange']);
+//   } else {
+//     // Add new client
+//     this.bookingService.newBooking(value);
+//     this.flashMessagesService.show('New Booking added', {cssClass:'alert-success', timeout: 4000});
+//     this.router.navigate(['/']);
+//   }
+//   }
+
+  onSubmit(value:Booking){
+      this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
+      this.router.navigate(['/oilchange']);
+      // Add new client
+      this.bookingService.newBooking(value);
+      console.log(value);
+      this.flashMessagesService.show('New Booking added', {cssClass:'alert-success', timeout: 4000});
+      // this.router.navigate(['/']);
+    }
   // email validation
 }

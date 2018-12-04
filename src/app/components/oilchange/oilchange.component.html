@@ -1,3 +1,4 @@
+<div class="bookingInput container-fluid">
 <div class="row">
   <div class="col-md-6">
     <a routerLink="/bookservice" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back To Select service type</a>
@@ -6,34 +7,33 @@
     
   </div>
 </div>
-<form class="formwidth" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+<form class="formWidth container-fluid" (ngSubmit)="onSubmit(bookingForm.value)" #bookingForm="ngForm">
  
  <mat-form-field class="example-full-width">
     <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date"
-    [(ngModel)]="booking.option"
+    [(ngModel)]="booking.date"
     name="date"
     type="text"
-    class="form-control"
     #bookingOption="ngModel">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 
  </mat-form-field><br/>
   
-  <mat-form-field>
-    <mat-select placeholder="Choose an option" [disabled]="disableSelect.value">
+  <mat-form-field class="example-full-width">
+    <mat-select [(ngModel)]="booking.option"
+    name="option"
+    type="select"
+    #bookingDate="ngModel" placeholder="Choose an option" [disabled]="disableSelect.value">
       <mat-option value="option1">Option 1</mat-option>
       <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
       <mat-option value="option3">Option 3</mat-option>
-      <input[(ngModel)]="booking.date"
-      name="option"
-      type="text"
-      class="form-control"
-      #bookingDate="ngModel">
+      
     </mat-select>
+    
   </mat-form-field><br/>
 
-  <!--mat-form-field class="example-full-width">
+  <!-- <mat-form-field class="example-full-width">
     <input matInput placeholder="Email" [formControl]="emailFormControl"
            [errorStateMatcher]="matcher" [(ngModel)]="booking.email" 
            name ="email" 
@@ -45,18 +45,17 @@
     <mat-error *ngIf="email.hasError('required')">
       Email is <strong>required</strong>
     </mat-error>
-  </mat-form-field-->
-  <mat-form-field>
+  </mat-form-field> -->
+  <mat-form-field class="example-full-width">
     <input matInput placeholder="Email"
            type = "text"
           [(ngModel)]="booking.email"
-          class="form-control"
           name = "email"
           #bookingemail="ngModel">
   </mat-form-field>
 
   <br/>
-  <mat-form-field>
+  <mat-form-field class="example-full-width">
     <input matInput placeholder="VehicleNo"  type="text"
     [(ngModel)]="booking.VehicleNo"
     name="VehicleNo"
@@ -66,5 +65,8 @@
     required>
   </mat-form-field>
   <br/>
+  <!-- <input type="submit" class="btn btn-primary btn-block"> -->
   <button mat-raised-button color="primary" type="submit" value="submit">Submit</button>
 </form>
+
+</div>

@@ -15,6 +15,7 @@ export class AddclientComponent implements OnInit {
     firstName:'',
     lastName:'',
     email:'',
+    password:'',
     phone:'',
     vehicleNo:'',
     millage:0 
@@ -37,6 +38,7 @@ export class AddclientComponent implements OnInit {
   } else {
     // Add new client
     this.clientService.newClient(value);
+    console.log(value);
     this.flashMessagesService.show('New client added', {cssClass:'alert-success', timeout: 4000});
     this.router.navigate(['/']);
   }
