@@ -27,6 +27,10 @@ export class ClientService {
     return this.clients;
   }
 
+  getClient(email:String){
+    this.client = this.af.object('/clients/'+email) as FirebaseObjectObservable<Client>;
+    return this.client;
+  }
   newClient(client:Client){
     const mytoken1 = {
       firstName : client.firstName,

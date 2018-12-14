@@ -20,7 +20,7 @@ export class BookingService {
    // return this.Booking = this.af.database.object('/bookings/'+ vehicleno);
   //}
   getBookings(){
-    return this.Bookings
+    return this.Bookings;
   }
 
   newBooking(booking:Booking){

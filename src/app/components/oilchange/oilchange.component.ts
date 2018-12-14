@@ -5,6 +5,7 @@ import { Booking } from '../../models/Booking';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
