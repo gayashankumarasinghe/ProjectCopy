@@ -24,8 +24,27 @@ export class BookingService {
   }
 
   newBooking(booking:Booking){
-    this.Bookings.push(booking);
-    // console.log()
+
+    var booki
+      ={
+        //$key?:string;
+        email:'',
+        //phone:'',
+        vehicleNo:'',
+        //millage:0 ,
+        date: '',
+        option:''
+      }
+    
+    
+    
+    booki.email = booking.email;
+    booki.option = booking.option;
+    booki.vehicleNo = booking.vehicleNo;
+    booki.date = booking.date.toDateString();
+
+    this.Bookings.push(booki);
+    console.log(booki);
   }
 
 }

@@ -23,7 +23,7 @@ export class OilchangeComponent implements OnInit {
     //phone:'',
     vehicleNo:'',
     //millage:0 ,
-    date:'',
+    date: new Date(),
     option:''
   }
 
@@ -108,11 +108,11 @@ export class OilchangeComponent implements OnInit {
 //   }
 
   onSubmit(value:Booking){
-      this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
+      // this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
       this.router.navigate(['/oilchange']);
       // Add new client
       this.bookingService.newBooking(value);
-      console.log(value);
+      // console.log(value);
       this.flashMessagesService.show('New Booking added', {cssClass:'alert-success', timeout: 4000});
       // this.router.navigate(['/']);
     }

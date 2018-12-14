@@ -4,6 +4,6 @@ export interface Booking{
     //phone?:string;
     vehicleNo:string;
    // millage?:number;
-    date?:string;
+    date?:Date;
     option?:string;
 }
