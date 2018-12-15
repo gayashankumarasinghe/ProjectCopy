@@ -3,6 +3,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 // import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Client } from '../models/Client';
+import { DatabaseQuery } from 'angularfire2/interfaces'
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -18,7 +19,10 @@ export class ClientService {
   client: FirebaseObjectObservable<any>;
 
   constructor(
-    public af:AngularFireDatabase, public afAuth: AngularFireAuth
+    public af:AngularFireDatabase,
+    public afAuth: AngularFireAuth,
+    public query: DatabaseQuery
+
   ) {
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
    }
@@ -39,14 +43,14 @@ export class ClientService {
 // );
 
 //child access
+// ff = this.query.ref
 
-
-//  ref.child('users').orderByChild('name').equalTo('John Doe').on("value", function(snapshot) {
+//  this.query.ref.child('clients').orderByChild('email').equalTo('id').on("value", function(snapshot) {
 //   console.log(snapshot.val());
 //   snapshot.forEach(function(data) {
 //       console.log(data.key);
 //   });
-//});
+// });
 
 
   }
