@@ -1,101 +1,72 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <a routerLink="/bookservice" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back To select service type</a>
-    </div>
-    <div class="col-md-6">
+<div class="bookingInput container-fluid">
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/bookservice" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back To Select service type</a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+<form class="formWidth container-fluid" (ngSubmit)="onSubmit(bookingForm.value)" #bookingForm="ngForm">
+ 
+ <mat-form-field class="example-full-width">
+    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date"
+    [(ngModel)]="booking.date"
+    name="date"
+    type="text"
+    #bookingOption="ngModel">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+ </mat-form-field><br/>
+  
+  <mat-form-field class="example-full-width">
+    <mat-select [(ngModel)]="booking.option"
+    name="option"
+    type="select"
+    #bookingDate="ngModel" placeholder="Choose an option" [disabled]="disableSelect.value">
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
       
-    </div>
-  </div>
-  
-  <div class="card">
-    <div class="card-header">
-      Add Booking
-     <span class="card01"> Without washing</span> 
-    </div>
-    <div class="card-block">
-      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
-          <div class="form-group">
-              <label for="vehicleNo">VehicleNo</label>
-              <input 
-                type="text"
-                class="form-control"
-                [(ngModel)]="client.vehicleNo"
-                name="vehicleNo"
-                #clientVehicleNo="ngModel"
-                minlength="4"
-                required
-              >
-              <div *ngIf="clientVehicleNo.errors?.required && clientVehicleNo.touched" class="alert alert-danger">
-                Vehicle number is required
-              </div>
-              <div *ngIf="clientVehicleNo.errors?.minlength && clientVehicleNo.touched" class="alert alert-danger">
-                Must be at least 4 characters
-              </div>
-            </div>
-  
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input 
-            type="email"
-            class="form-control"
-            [(ngModel)]="client.email"
-            name="email"
-            #clientEmail="ngModel"
-            minlength="2"
-            required
-          >
-          <div *ngIf="clientEmail.errors?.required && clientEmail.touched" class="alert alert-danger">
-            Email required
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input 
-            type="text"
-            class="form-control"
-            [(ngModel)]="client.phone"
-            name="phone"
-            #clientPhone="ngModel"
-            minlength="10"
-            required
-          >
-          <div *ngIf="clientPhone.errors?.minlength && clientPhone.touched" class="alert alert-danger">
-            Add a valid phone number
-          </div>
-        </div>
-  
-        
-  
-        <div class="form-group">
-          <label for="millage">Current Millage</label>
-          <input 
-            type="number"
-            class="form-control"
-            [(ngModel)]="client.millage"
-            name="millage"
-            #clientMillage="ngModel"
-            minlength="4"
-            required
-  
-          >    
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea rows="4"
-            type="text"
-            class="form-control"
-            [(ngModel)]="client.message"
-            name="message"
-            #clientLastName="ngModel"
-            minlength="2"
-            required
-          ></textarea>
-        </div>
-  
-        <input type="submit" class="btn btn-primary btn-block" value="Submit">
-      </form>
-    </div>
-  </div>
-  </div>
+    </mat-select>
+    
+  </mat-form-field><br/>
+
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" [formControl]="emailFormControl"
+           [errorStateMatcher]="matcher" [(ngModel)]="booking.email" 
+           name ="email" 
+           #bookingemail="ngModel">
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field> -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email"
+           type = "text"
+          [(ngModel)]="booking.email"
+          name = "email"
+          #bookingemail="ngModel">
+  </mat-form-field>
+
+  <br/>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="VehicleNo"  type="text"
+    [(ngModel)]="booking.vehicleNo"
+    name="vehicleNo"
+    type="text"
+    #bookingVehicleNo="ngModel"
+    minlength="2"
+    required>
+  </mat-form-field>
+  <br/>
+  <!-- <input type="submit" class="btn btn-primary btn-block"> -->
+  <button mat-raised-button color="primary" type="submit" value="submit">Submit</button>
+</form>
+
+</div>

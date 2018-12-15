@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithwashingComponent implements OnInit {
 
-  constructor() {     console.log("cons");}
+  constructor() {     }
 
   ngOnInit() {
-    console.log("pp");
+
   }
 
 

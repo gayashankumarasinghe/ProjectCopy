@@ -7,6 +7,7 @@ export interface Client{
     vehicleNo:string;
     millage?:number;
     role?:Roles;
+    password? : string;
 
 }
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  email:string;
+  password:string;
+
+  constructor(
+     private authService:AuthService,
+    private router:Router,
+    private flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
   }
+  onSubmit(){
+    this.authService.register(this.email, this.password)
+      .then((res) => {
+        this.flashMessagesService.show('You are registerd fill your vehicle detailes', {cssClass:'alert-success', timeout:4000});
+        this.router.navigate(['/addclient']);
+      })
+      .catch((err) => {
+        this.flashMessagesService.show(err.message, {cssClass:'alert-danger', timeout:4000});
+        this.router.navigate(['/register']);
+      });
+  }
+
 
 }
