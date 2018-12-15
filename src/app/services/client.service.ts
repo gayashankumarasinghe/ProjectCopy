@@ -27,9 +27,28 @@ export class ClientService {
     return this.clients;
   }
 
-  getClient(email:String){
-    this.client = this.af.object('/clients/'+email) as FirebaseObjectObservable<Client>;
+  getClient(id:String){
+    this.client = this.af.object('/clients/'+id) as FirebaseObjectObservable<Client>;
     return this.client;
+
+//     var size$ = new FirebaseObjectObservable<Client>;
+// const queryObservable = size$.pipe(
+//   switchMap(size => 
+//     db.list('/items', ref => ref.orderByChild('size').equalTo(size)).valueChanges()
+//   )
+// );
+
+//child access
+
+
+//  ref.child('users').orderByChild('name').equalTo('John Doe').on("value", function(snapshot) {
+//   console.log(snapshot.val());
+//   snapshot.forEach(function(data) {
+//       console.log(data.key);
+//   });
+//});
+
+
   }
   newClient(client:Client){
     const mytoken1 = {
