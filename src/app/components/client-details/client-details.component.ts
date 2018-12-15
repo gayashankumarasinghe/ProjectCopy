@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/Client';
+<<<<<<< HEAD
 import { Router , ActivatedRoute , Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+=======
+>>>>>>> remotes/origin/master
 
 
 @Component({
@@ -12,6 +15,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class ClientDetailsComponent implements OnInit {
 
+<<<<<<< HEAD
     id:string;
     client:Client;
 
@@ -35,6 +39,11 @@ export class ClientDetailsComponent implements OnInit {
     //   this.client = client;
     //   console.log(this.client);
     // });
+=======
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> remotes/origin/master
   }
 
 }

@@ -16,11 +16,17 @@ export interface UserDetails {
 export class ClientService {
   clients: FirebaseListObservable<any[]>;
   client: FirebaseObjectObservable<any>;
+<<<<<<< HEAD
   detailQuery;
 
   constructor(
     public af:AngularFireDatabase,
     public afAuth: AngularFireAuth
+=======
+
+  constructor(
+    public af:AngularFireDatabase, public afAuth: AngularFireAuth
+>>>>>>> remotes/origin/master
   ) {
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
    }
@@ -29,6 +35,7 @@ export class ClientService {
     return this.clients;
   }
 
+<<<<<<< HEAD
   getClient(idemail:string){
     // this.clients = this.af.list('booking', { 
     //   preserveSnapshot: true,
@@ -49,6 +56,11 @@ export class ClientService {
         console.log(value);
       })
 
+=======
+  getClient(email:String){
+    this.client = this.af.object('/clients/'+email) as FirebaseObjectObservable<Client>;
+    return this.client;
+>>>>>>> remotes/origin/master
   }
   newClient(client:Client){
     const mytoken1 = {
