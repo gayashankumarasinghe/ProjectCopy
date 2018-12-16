@@ -34,7 +34,7 @@ export class ClientService {
     //   preserveSnapshot: true,
     //    query :{
     //     orderByChild:'email',
-    //     equalTo: this.size
+    //     equalTo: idemail
     //   } 
     // })
     // var queryItem = this.clients.subscribe(queriedItems => {
@@ -42,12 +42,7 @@ export class ClientService {
     // });
 
     const ref = this.af.list('/booking').$ref;
-    ref.orderByChild('email').equalTo(idemail)
-      .once('value')
-      .then( function(snapshot) {
-        var value = snapshot.toJSON();
-        console.log(value);
-      })
+    return ref.orderByChild('email').equalTo(idemail);
 
   }
   newClient(client:Client){
