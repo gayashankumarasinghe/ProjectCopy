@@ -1,28 +1,43 @@
+
+<mat-card>
+    <mat-card-content>
+      <h2 class="example-h2">Result</h2>
+      
 <table *ngIf="clients?.length > 0;else noClients" class="table table-striped">
-  <thead class="thead-inverse">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Vehicleno</th>
-      <th>Millage</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let client of clients">
-      <td>{{client.$key}}</td>
-      <td>{{client.firstName}} {{client.lastName}}</td>
-      <td>{{client.email}}</td>
-      <td>{{client.vehicleNo}}</td>
-      <td>{{client.millage}}</td>
-      <td><a [routerLink]="['/client-details/'+client.$key]" href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
-    </tr>
-  </tbody>
+    <thead class="thead-inverse">
+      <tr>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Email</th>
+        <th>Vehicleno</th>
+        <th>Millage</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <!-- <td>{{client.$key}}</td> -->
+        <td>{{client.firstName}} {{client.lastName}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.vehicleNo}}</td>
+        <td>{{client.milage}}</td>
+        <td>{{client.phone}}</td>
+        <td><a [routerLink]="['/client-details/'+client.$key]" href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+      </tr>
+    </tbody>
+  
+  </table>
+  
+  <!-- <ng-template #noClients>
+    <hr>
+    <h5>There are no clients in the system</h5>
+  </ng-template> -->
+  
+      <mat-spinner *ngIf="showSpinner"
+          class="example-margin"
+          [mode]="Indeterminate">
+      </mat-spinner>
+    </mat-card-content>
+  </mat-card>
 
-</table>
-
-<ng-template #noClients>
-  <hr>
-  <h5>There are no clients in the system</h5>
-</ng-template>

@@ -13,7 +13,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class ClientDetailsComponent implements OnInit {
 
     id:string;
-    client:Client;
+    clients: Client[]=[];
+    showSpinner:boolean = true;
 
   constructor(
     public clientService:ClientService,
@@ -22,25 +23,40 @@ export class ClientDetailsComponent implements OnInit {
     public route:ActivatedRoute,
   ) { }
 
-
-
-
-
-
-
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    var query = this.clientService.getClient(this.id)
-    .once('value')
-    .then(function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        var key = childSnapshot.key;
-        var childData = childSnapshot.val();
-        console.log(childData)
-      })
-    })
+    // var x = this.clientService.getClient(this.id)
+    // .once('value')
+    // .then(function(snapshot) {
+    //   snapshot.forEach(async function(childSnapshot) {
+    //     var key = childSnapshot.key;
+    //     var childData = childSnapshot.val();
+    //     console.log(childData)
+    //   })
+    // })
+  
+    this.promiseConverter();
    
+   
+  }
+ 
+
+  async promiseConverter():Promise<string> {
+    try{
+      const data = await this.getData();
+      data.forEach((childSnapshot)=>{
+        this.clients.push(childSnapshot.val());
+      })
+      this.showSpinner=false
+      return "firebase is # "+ data;
+    }catch(err){
+      return "Error "+err;
+    }
+  }
+
+  getData(){
+    return this.clientService.getClient(this.id).once('value')
   }
 
 

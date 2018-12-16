@@ -43,8 +43,8 @@ export class ClientService {
     //   console.log(queriedItems);
     // });
 
-    const ref = this.af.list('/booking').$ref;
-    return ref.orderByChild('email').equalTo(idemail);
+    const ref = this.af.list('/clients').$ref;
+    return ref.orderByChild('email').equalTo(idemail)
 
   }
   newClient(client:Client){
