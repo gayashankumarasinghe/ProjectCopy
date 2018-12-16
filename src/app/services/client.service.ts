@@ -17,7 +17,7 @@ export interface UserDetails {
 export class ClientService {
   clients: FirebaseListObservable<any[]>;
   client: FirebaseObjectObservable<any>;
-
+  relative:FirebaseObjectObservable<any>;
   constructor(
     public af:AngularFireDatabase,
     public afAuth: AngularFireAuth,
@@ -25,6 +25,7 @@ export class ClientService {
 
   ) {
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
+    
    }
 
    getClients(){
@@ -32,9 +33,15 @@ export class ClientService {
   }
 
   getClient(id:String){
+    
+    // this.client = this.query.ref.child('/clients/'+id) as DatabaseQuery;
+    // return this.client;
+
     this.client = this.af.object('/clients/'+id) as FirebaseObjectObservable<Client>;
     return this.client;
-
+   // this.relative = this.af.database.ref('/client');
+    
+     
 //     var size$ = new FirebaseObjectObservable<Client>;
 // const queryObservable = size$.pipe(
 //   switchMap(size => 
