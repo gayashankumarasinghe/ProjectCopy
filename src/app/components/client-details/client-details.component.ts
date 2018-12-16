@@ -29,6 +29,7 @@ export class ClientDetailsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
 
     var query = this.clientService.getClient(this.id)
     .once('value')
