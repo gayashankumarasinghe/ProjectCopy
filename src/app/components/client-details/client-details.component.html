@@ -1,7 +1,7 @@
 <table *ngIf="clients?.length > 0;else noClients" class="table table-striped">
   <thead class="thead-inverse">
     <tr>
-      <!-- <th>ID</th> -->
+      <th>ID</th>
       <th>Name</th>
       <th>Email</th>
       <th>Vehicleno</th>
@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let client of clients">
-      <!-- <td>{{client.$key}}</td> -->
+      <td>{{client.$key}}</td>
       <td>{{client.firstName}} {{client.lastName}}</td>
       <td>{{client.email}}</td>
       <td>{{client.vehicleNo}}</td>

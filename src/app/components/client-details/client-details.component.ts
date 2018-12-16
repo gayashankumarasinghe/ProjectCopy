@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/Client';
-<<<<<<< HEAD
 import { Router , ActivatedRoute , Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 import { Router , ActivatedRoute , Params} from '@angular/router';
@@ -11,6 +11,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 =======
 >>>>>>> remotes/origin/master
 >>>>>>> remotes/origin/master
+=======
+>>>>>>> 5598630a47a297395fb2cc64ecb0c5bbd5647484
 
 
 @Component({
@@ -21,9 +23,12 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class ClientDetailsComponent implements OnInit {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> remotes/origin/master
+=======
+>>>>>>> 5598630a47a297395fb2cc64ecb0c5bbd5647484
     id:string;
     client:Client;
 
@@ -51,10 +56,9 @@ export class ClientDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    //get id
     this.id = this.route.snapshot.params['id'];
-    // console.log(this.id);
 
+<<<<<<< HEAD
     //get client
 
     this.clientService.getClient(this.id);
@@ -68,6 +72,19 @@ export class ClientDetailsComponent implements OnInit {
   ngOnInit() {
 >>>>>>> remotes/origin/master
 >>>>>>> remotes/origin/master
+=======
+    var query = this.clientService.getClient(this.id)
+    .once('value')
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        console.log(childData)
+      })
+    })
+   
+>>>>>>> 5598630a47a297395fb2cc64ecb0c5bbd5647484
   }
+
 
 }
