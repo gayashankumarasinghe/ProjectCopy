@@ -17,20 +17,11 @@ export interface UserDetails {
 export class ClientService {
   clients: FirebaseListObservable<any[]>;
   client: FirebaseObjectObservable<any>;
-<<<<<<< HEAD
-  relative:FirebaseObjectObservable<any>;
-  constructor(
-    public af:AngularFireDatabase,
-    public afAuth: AngularFireAuth,
-    public query: DatabaseQuery
-
-=======
   detailQuery;
 
   constructor(
     public af:AngularFireDatabase,
     public afAuth: AngularFireAuth
->>>>>>> remotes/origin/master
   ) {
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
     
@@ -40,35 +31,6 @@ export class ClientService {
     return this.clients;
   }
 
-<<<<<<< HEAD
-  getClient(id:String){
-    
-    // this.client = this.query.ref.child('/clients/'+id) as DatabaseQuery;
-    // return this.client;
-
-    this.client = this.af.object('/clients/'+id) as FirebaseObjectObservable<Client>;
-    return this.client;
-   // this.relative = this.af.database.ref('/client');
-    
-     
-//     var size$ = new FirebaseObjectObservable<Client>;
-// const queryObservable = size$.pipe(
-//   switchMap(size => 
-//     db.list('/items', ref => ref.orderByChild('size').equalTo(size)).valueChanges()
-//   )
-// );
-
-//child access
-// ff = this.query.ref
-
-//  this.query.ref.child('clients').orderByChild('email').equalTo('id').on("value", function(snapshot) {
-//   console.log(snapshot.val());
-//   snapshot.forEach(function(data) {
-//       console.log(data.key);
-//   });
-// });
-
-=======
   getClient(idemail:string){
     // this.clients = this.af.list('booking', { 
     //   preserveSnapshot: true,
@@ -88,7 +50,6 @@ export class ClientService {
         var value = snapshot.toJSON();
         console.log(value);
       })
->>>>>>> remotes/origin/master
 
   }
   newClient(client:Client){
