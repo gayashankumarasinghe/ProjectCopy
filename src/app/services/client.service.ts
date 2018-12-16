@@ -17,12 +17,20 @@ export interface UserDetails {
 export class ClientService {
   clients: FirebaseListObservable<any[]>;
   client: FirebaseObjectObservable<any>;
+<<<<<<< HEAD
   relative:FirebaseObjectObservable<any>;
   constructor(
     public af:AngularFireDatabase,
     public afAuth: AngularFireAuth,
     public query: DatabaseQuery
 
+=======
+  detailQuery;
+
+  constructor(
+    public af:AngularFireDatabase,
+    public afAuth: AngularFireAuth
+>>>>>>> remotes/origin/master
   ) {
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
     
@@ -32,6 +40,7 @@ export class ClientService {
     return this.clients;
   }
 
+<<<<<<< HEAD
   getClient(id:String){
     
     // this.client = this.query.ref.child('/clients/'+id) as DatabaseQuery;
@@ -59,6 +68,27 @@ export class ClientService {
 //   });
 // });
 
+=======
+  getClient(idemail:string){
+    // this.clients = this.af.list('booking', { 
+    //   preserveSnapshot: true,
+    //    query :{
+    //     orderByChild:'email',
+    //     equalTo: this.size
+    //   } 
+    // })
+    // var queryItem = this.clients.subscribe(queriedItems => {
+    //   console.log(queriedItems);
+    // });
+
+    const ref = this.af.list('/booking').$ref;
+    ref.orderByChild('email').equalTo(idemail)
+      .once('value')
+      .then( function(snapshot) {
+        var value = snapshot.toJSON();
+        console.log(value);
+      })
+>>>>>>> remotes/origin/master
 
   }
   newClient(client:Client){

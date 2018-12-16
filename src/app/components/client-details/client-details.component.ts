@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/Client';
+<<<<<<< HEAD
 import { Router , ActivatedRoute , Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+=======
+<<<<<<< HEAD
+import { Router , ActivatedRoute , Params} from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+=======
+>>>>>>> remotes/origin/master
+>>>>>>> remotes/origin/master
 
 
 @Component({
@@ -12,6 +20,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class ClientDetailsComponent implements OnInit {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> remotes/origin/master
     id:string;
     client:Client;
 
@@ -21,6 +33,7 @@ export class ClientDetailsComponent implements OnInit {
     public router:Router,
     public route:ActivatedRoute,
   ) { }
+<<<<<<< HEAD
 
   ngOnInit() {
 
@@ -34,6 +47,27 @@ export class ClientDetailsComponent implements OnInit {
       this.client = client;
       console.log(this.client);
     });
+=======
+
+  ngOnInit() {
+
+    //get id
+    this.id = this.route.snapshot.params['id'];
+    // console.log(this.id);
+
+    //get client
+
+    this.clientService.getClient(this.id);
+    // .subscribe(client=>{
+    //   this.client = client;
+    //   console.log(this.client);
+    // });
+=======
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> remotes/origin/master
+>>>>>>> remotes/origin/master
   }
 
 }
